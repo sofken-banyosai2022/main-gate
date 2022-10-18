@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Audio file
+*.wav
+*.mp3
+*.ac3
+*.dts
+
+# Other
+tests/
+*.bat
+*.json
