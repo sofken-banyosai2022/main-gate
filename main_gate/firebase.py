@@ -5,7 +5,7 @@ from firebase_admin import firestore
 
 
 # Firebase 初期化
-cred = credentials.Certificate('./main_gate/serviceAccount.json')
+cred = credentials.Certificate('./main_gate/data/serviceAccount.json')
 app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
