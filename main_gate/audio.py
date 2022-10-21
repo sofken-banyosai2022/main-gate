@@ -74,4 +74,8 @@ def generateAudio(type, *audio):
 
 # 音源再生
 def playAudio():
-    subprocess.Popen(['start', OUTPUT_DIR + '/' + OUTPUT_FILE], shell=True)
+
+    if os.name == 'nt':
+        subprocess.Popen(['start', OUTPUT_DIR + '/' + OUTPUT_FILE], shell=True)
+    elif os.name == 'posix':
+        subprocess.Popen([OUTPUT_DIR + '/' + OUTPUT_FILE], shell=True)
