@@ -2,6 +2,7 @@ import threading
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from main_gate import audio
 
 
 # Firebase 初期化
@@ -19,11 +20,17 @@ def on_snapshot(col_snapshot, changes, read_time):
         if (change.type.name == 'ADDED') or (change.type.name == 'MODIFIED'):
             for doc in col_snapshot:
                 if doc.id == change.document.id :
+
+                    # 音源取得
+                    audio.getAudio(doc.to_dict()['name'])
+
+                    # ログ出力
                     print(doc.to_dict())
+
         elif change.type.name == 'REMOVED':
             callback_done.set()
 
-col_query = db.collection(u'aaa')
+col_query = db.collection(u'users')
 
 # Watch the collection query
 query_watch = col_query.on_snapshot(on_snapshot)
