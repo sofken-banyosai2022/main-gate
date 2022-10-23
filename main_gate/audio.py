@@ -34,6 +34,10 @@ def getAudio(name):
         audio_name_1_data = list(filter(lambda data: data['name'] == name[3], path_data['02_id']))
         audio_name_2_data = list(filter(lambda data: data['name'] == name[4], path_data['02_id']))
 
+        # audio_name_dataが空の場合は処理を実行しない
+        if not audio_name_0_data or not audio_name_1_data or not audio_name_2_data:
+            return
+
         audio_name_id = ffmpeg.input(path_data['02_id'][0]['path'])
         audio_name_0 = ffmpeg.input(audio_name_0_data[0]['path'])
         audio_name_1 = ffmpeg.input(audio_name_1_data[0]['path'])
