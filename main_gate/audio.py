@@ -82,4 +82,4 @@ def playAudio():
     if os.name == 'nt':
         subprocess.Popen(['start', OUTPUT_DIR + '/' + OUTPUT_FILE], shell=True)
     elif os.name == 'posix':
-        subprocess.Popen([OUTPUT_DIR + '/' + OUTPUT_FILE], shell=True)
+        subprocess.Popen(['open', OUTPUT_DIR + '/' + OUTPUT_FILE])
