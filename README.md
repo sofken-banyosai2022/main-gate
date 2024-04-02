@@ -1,5 +1,7 @@
 # main-gate
 
+![main-gate](main-gate.webp)
+
 ## Usage
 
 1. Create an `input`  and an `output` folder.
